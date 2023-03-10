@@ -1,0 +1,14 @@
+<div id="ajax-response-id"></div>
+<?php
+$ajaxurl = $block->getAjaxUrl();
+?>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Mageplaza_HelloWorld/js/custom": {
+                    "AjaxUrl": "<?php echo $ajaxurl; ?>",
+                    "CurrentProduct": "<?php echo $currentProductId; ?>",
+                }
+            }
+        }
+</script>

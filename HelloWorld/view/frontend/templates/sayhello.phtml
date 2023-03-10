@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @var \Mageplaza\HelloWorld\Block\Display $block
+ */
+
+//echo $block->sayHello();
+
+echo $block->migrateOldDataToNewTable();
+
+?>
+
+
+
+<script>
+  require(['jquery'], function($) {
+  $(document).ready(function() {
+    var id = 2; // Id a enviar
+    let url = window.location.origin+'/getdatacustomtable/index/getcustomdata'+id;
+    console.log(url);
+    $.ajax({
+      url: url,
+      type: 'GET',
+      success: function(response) {
+        console.log(response);
+      }
+    });
+  });
+});
+
+</script>  
+
+<style>
+table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
+tr:nth-child(even) { background-color: #dddddd; }
+.post-id{width:2%} .post-name{width:30%}
+
+</style>
+
+<table>
+  <tr>
+    <th class="post-id">Id</th>
+    <th class="post-name">Name</th>
+    <th>EmailCostumer</th>
+  </tr>
+     <?php
+        // foreach ($block->getPostCollection() as $key=>$post){
+        //     echo '<tr>
+        //             <td>'.$post->getPostId().'</td>
+        //             <td>'.$post->getName().'</td>
+        //             <td>'.$post->getEmailCustomer().'</td>
+        //           </tr>';
+        // }
+        // foreach($block->getData('customer') as $customer){
+        //     echo '
+        //         <tr>
+        //         <td>'.$customer->getPostId().'</td>
+        //             <td>'.$customer->getName().'</td>
+        //             <td>'.$customer->getEmailCustomer().'</td>
+        //         </tr>';
+        // }
+    ?> 
+</table> 
+
+</body>
+</html>

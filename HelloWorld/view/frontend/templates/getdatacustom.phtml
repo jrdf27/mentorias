@@ -1,0 +1,14 @@
+<script type="text/javascript">
+require(['jquery'], function($) {
+    $(document).ready(function() {
+        $.ajax({
+            url: '<?php echo $block->getUrl('getdatacustomtable/getcustomdata'); ?>',
+            type: 'POST',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response.message);
+            }
+        });
+    });
+});
+</script>
