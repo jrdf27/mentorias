@@ -20,7 +20,8 @@ class Data extends AbstractHelper
 
   protected $_myTableFactory;
 
-  protected $jsonResultFactory;
+  protected $_jsonResultFactory;
+  
   protected $myTableFactory2;
 
   protected $_newCustomerFactory;
@@ -51,6 +52,7 @@ class Data extends AbstractHelper
     $this->_customerCollectionFactory = $customerFactory;
     $this->_newCustomerFactory = $newCustomerFactory;
     $this->_jsonResultFactory = $jsonResultFactory;
+    
 
   }
 
@@ -59,25 +61,11 @@ class Data extends AbstractHelper
   {
     // Obtener instancia del modelo
     $myTableModel = $this->myTableFactory2->create();
-   // $oldTable2 = $this->myTableFactory->create();
    
-    //$sourceData = $oldTable2->getCollection()->getData();
-    //$sourceData = $oldTable2;
-   
-   // foreach($sourceData as $data) {
-      // Usar set() para guardar valores en cada campo
-
-       
-      // $myTableModel = $this->myTableFactory2->create();
-      //$myTableModel->setData($data);
-      // $myTableModel->setName($oldTable2->getName('name'));
-      // $myTableModel->setData('url_key',$data->getData('url_key'));
-       //$myTableModel->setData('email_customer',$data->getData('email_customer'));
-
       // Guardar valores en la tabla utilizando save()
       $myTableModel->save();
- //   }
-    // Retornar un mensaje
+ 
+    // Retornar un mensaSje
     return 'Datos guardados en la tabla correctamente';
   }
 
@@ -87,6 +75,15 @@ class Data extends AbstractHelper
     
 		$post = $this->_myTableFactory->create();
 		$data= $post->getCollection()->addFieldToFilter('post_id',$idCustom);
+    return $resultJson->setData($data);
+	}
+
+  public function getCustomerCollection($emailCustom){
+
+    $resultJson = $this->_jsonResultFactory->create();
+    
+		$post = $this->_myTableFactory->create();
+		$data= $post->getCollection()->addFieldToFilter('email',$emailCustom);
     return $resultJson->setData($data);
 	}
 
@@ -124,6 +121,15 @@ class Data extends AbstractHelper
     }
 
     
+  }
+
+  public function saveNewCustomer($name, $url_key, $email_customer){
+
+     $newModel = $this->_newCustomerFactory->create();
+     $newModel->setName($name);
+     $newModel->setUrlKey($url_key);
+     $newModel->setEmailCustomer($email_customer);
+     $newModel->save();
   }
 
 

@@ -34,17 +34,17 @@ class Result extends \Magento\Framework\App\Action\Action
             $numone = $this->getRequest()->getParam('numone');
             $numtwo = $this->getRequest()->getParam('numtwo');
 
-            $id= $this->getRequest()->getParam('id');
+            //$id= $this->getRequest()->getParam('id');
 
             $result = $this->resultJsonFactory->create();
             $resultPage = $this->resultPageFactory->create();
 
             $block = $resultPage->getLayout()
                 ->createBlock('Mageplaza\HelloWorld\Block\Index')
-                ->setTemplate('Mageplaza_HelloWorld::resultconsul.phtml')
+                ->setTemplate('Mageplaza_HelloWorld::result.phtml')
                 ->setData('numone',$numone)
                 ->setData('numtwo',$numtwo)
-                ->setData('id',$id)
+               // ->setData('id',$id)
                 ->toHtml();
 
             $result->setData(['output' => $block]);

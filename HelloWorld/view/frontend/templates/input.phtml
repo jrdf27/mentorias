@@ -1,0 +1,17 @@
+<div class="field field-name-rfc">
+    <div class="control error-msg">
+        <div class="label-container">
+            <label class="bottom-label" for="rfc">
+                <?= $block->escapeHtmlAttr(__('rfc')) ?>
+            </label>
+            <input type="text" id="rfc"
+                name="rfc"
+                value="<?= $block->getCustomAttribute('rfc') ?>"
+                title="rfc"
+                class="input-text input-custom"
+                data-validate='{"required”:false, pattern:/^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/}'
+                maxlength="13"
+            />
+        </div>
+    </div>
+</div>

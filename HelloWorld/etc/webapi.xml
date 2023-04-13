@@ -1,7 +1,26 @@
 <?xml version="1.0"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
-    <route method="POST" url="/V1/rest_dev/custom-api/">
+    <route method="GET" url="/V1/rest_dev/custom-api/">
         <service class="Mageplaza\HelloWorld\Api\CustomInterface" method="getData" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+        <!--  -->
+    </route>
+    <route method="GET" url="/V1/rest_dev2/customemailmanagement-api/">
+        <service class="Mageplaza\HelloWorld\Api\CustomEmailInterface" method="getCustomer" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/rest_dev3/product-api/">
+        <service class="Mageplaza\HelloWorld\Api\ProductInterface" method="getProduct" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/rest_dev4/custom-api/">
+        <service class="Mageplaza\HelloWorld\Api\CustomOrderAttribute" method="getData" />
         <resources>
             <resource ref="anonymous"/>
         </resources>

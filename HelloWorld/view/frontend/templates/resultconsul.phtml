@@ -1,9 +1,30 @@
 <?php
+use PHPUnit\Framework\Constraint\IsEmpty;
 
-    $h = $block->getIdData();
-   
-   
-    echo $h;
+$h = $block->getIdData();
 
+
+// echo $h;
+
+
+?>
+
+
+
+<?php
+if ($block->getPostCollection() == "0") {
+    echo "Registro no encontado";
+
+} else {
+    //$post = $block->getPostCollection();
+    foreach ($block->getPostCollection() as $key => $post) {
+        echo $post->getPostId() . " " .
+            $post->getName() . " " .
+            $post->getEmailCustomer();
+
+    }
+
+
+}
 
 ?>

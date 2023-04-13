@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <system>
+        <tab id="sendmail_config" sortOrder="999" translate="label">
+            <label>Send Mail Config </label>
+        </tab>
+        <section id="sendmail_custom" showInDefault="1" showInWebsite="1" sortOrder="110" translate="label">
+            <class>separator-top</class>
+            <label>configuration</label>
+            <tab>sendmail_config</tab>
+            <resource>Mageplaza_HelloWorld::config_path</resource>
+            <group id="nodo_sendmail" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10" translate="label">
+                <label>Template mail configuration</label>
+                <field id="id_email_template" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Id del Template</label>
+                    <comment>Establecer el Id del template a utilizar</comment>
+                </field>
+            </group>
+        </section>
+        <tab id="samplemodule" translate="label" sortOrder="999999">
+            <label>Sample Tab</label>
+        </tab>
+        <section id="samplemodule" translate="label" type="text" sortOrder="9999" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Sample Module</label>
+            <tab>samplemodule</tab>
+            <resource>Barbanet_SampleModule::samplemodule</resource>
+            <group id="contact" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Sample Module</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sample_text" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sample Text</label>
+                </field>
+            </group>
+            <group id="cron" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Cron configuration</label>
+                <field id="schedule" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Schedule Offline Orders</label>
+                    <comment><![CDATA[
+                               <pre>
+                               * * * * *
+                               | | | | |
+                               | | | | +---- Dia de la semana   (rango: 1-7, 1 igual a lunes)
+                               | | | +------ Mes del año (rango: 1-12)
+                               | | +-------- Dia del mes  (rango: 1-31)
+                               | +---------- Hora              (rango: 0-23)
+                               +------------ Minuto            (rango: 0-59)
+                               Example: 0 0 * * * Todos los días a las 12:00 am
+                               </pre>
+                            ]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>   

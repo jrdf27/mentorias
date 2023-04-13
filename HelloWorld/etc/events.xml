@@ -1,0 +1,11 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <!-- <event name="sales_order_place_after">
+        <observer name="place_order" instance="Mageplaza\HelloWorld\Observer\OrderCreated" disabled="false"/>
+    </event> -->
+    <event name="sales_order_load_after">
+        <observer name="place_order_attribute" instance="Mageplaza\HelloWorld\Observer\OrderLoadAfter" disabled="false"/>
+    </event>
+    <event name="sales_order_place_after">
+        <observer name="send_mail_customer" instance="Mageplaza\HelloWorld\Observer\SendMailOrderCreated"/>
+    </event> 
+</config>

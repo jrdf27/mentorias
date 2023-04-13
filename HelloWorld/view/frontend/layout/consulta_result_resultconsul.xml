@@ -6,7 +6,7 @@ xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_config
 </head>
 <body>
     <referenceContainer name="content">
-        <block class="Mageplaza\HelloWorld\Block\Index" name="result_resultconsul" 
+        <block class="Mageplaza\HelloWorld\Block\Display" name="helloworld_display" 
         template="Mageplaza_HelloWorld::resultconsul.phtml"/>
     </referenceContainer>    
 </body>

@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Mageplaza\HelloWorld\Api\CustomInterface" type="Mageplaza\HelloWorld\Model\Api\Custom"/>
+    <preference for="Mageplaza\HelloWorld\Api\CustomEmailInterface" type="Mageplaza\HelloWorld\Model\Api\CustomEmailManagement"/>
+    <preference for="Mageplaza\HelloWorld\Api\ProductInterface" type="Mageplaza\HelloWorld\Model\Api\ProductManagement"/>
+    <preference for="Magento\Catalog\Block\Product\ListProduct" type="Mageplaza\HelloWorld\Block\Product\ListProduct"/>
+    <preference for="Magento\Customer\Controller\Account\CreatePost" type="Mageplaza\HelloWorld\Controller\Account\CreatePost"/>
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="after_place_order_add" type="Mageplaza\HelloWorld\Plugin\OrderManagement" disabled="false"/>
+    </type>
 </config>

@@ -1,3 +1,16 @@
+<?php
+
+/**
+ * @var \Mageplaza\HelloWorld\Block\Display $block
+ */
+
+ //$url = $block->getUrlAjax();
+
+ echo $url;
+ ?>
+
+ 
+
 <div class="row clearfix">
     <div class="col-md-12 column">
         <form name="form_value" method="POST" id="form_value">
@@ -7,24 +20,22 @@
             <input type="submit" id="calculateTotalSubmit" name="calculate-total-submit"
             value="Enviar">
         </form><br><br>
-        Respuesta<div class="resultconsul" style="display:none"></div>
+        Respuesta <div class="resultconsul" style="display:none"></div>
     </div>
 </div>
 
 <script>
     require(['jquery'],function($) {
         $(document).ready(function(){
-            $(".result").hide();
+            $(".resultconsul").hide();
             $("#form_value").submit(function(){
+                
 
                 var idValue = $("input[name='id']").val();
-
-                var url = "<?php echo $block->getBaseUrl().
-                    'consulta/result/result/' ?>";
+                let url = 'consulta/result/ajax?id='+idValue;
                 $.ajax({
                 url: url,
                 type: "POST",
-                data: {id:idValue},
                 showLoader: true,
                 cache: false,
                 success: function(response){

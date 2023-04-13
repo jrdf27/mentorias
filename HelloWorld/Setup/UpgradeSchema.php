@@ -12,9 +12,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
     { 
         $setup->startSetup();
  
-        if (version_compare($context->getVersion(), '1.1.8', '<')) {
+        if (version_compare($context->getVersion(), '1.6.8', '<')) {
             $setup->getConnection()->addColumn(
-                $setup->getTable(' ce'),
+                $setup->getTable('mageplaza_helloworld_post2'),
                 'email_customer',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,

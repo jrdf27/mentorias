@@ -1,0 +1,44 @@
+<?php
+
+ /** 
+  *  
+  * @var \Mageplaza\HelloWorld\Block\Customer\Invoice $block
+  */
+
+  $rfc = $block->getLayout()->createBlock('Mageplaza\HelloWorld\Block\Customer\Invoice')->getCustomAttribute('rfc');
+?>
+
+<div class="field field-name-rfc">
+    <div class="control error-msg">
+        <div class="label-container">
+            <label class="bottom-label" for="rfc">
+                <?= $block->escapeHtmlAttr(__('RFC')) ?>
+            </label>
+            <input type="text" id="rfc"
+                name="rfc"
+                value="<?=$rfc ?>"
+                title="rfc"
+                class="input-text input-custom"
+                data-validate='{"required":false, pattern:/^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/}'
+                maxlength="13"
+                data-validate="{required:true, 'validate-length': true}"
+                data-msg-required="Este campo es obligatorio."
+            />
+            <?php 
+                //$rfc = $block->getCustomAttribute('rfc');
+             
+                $valida = $block->getViewModel()->getMessage($rfc);
+               
+                
+            if($valida == '1'){ 
+                echo '<div class="message notice notice-msg">
+                    <p>Es necesario agregar su RFC para emitir su factura</p>
+
+                </div>';
+              }
+                ?>
+    
+
+        </div>
+    </div>
+</div>
